@@ -32,12 +32,14 @@ public class Vehicle {
     }
 
     public int getId() { //getter is made for checking in a list of vehicles 2 vehicles with the same id
-        return id;
-    }
+        return this.id;
+    }   //getter is used for searching an element by it's ID
 
     /**
      * Method increases vehicle's speed on 10. The max possible value of the speed will equal max speed;
      */
+
+    public int getWeight() { return this.weight;}   //getter is used for sorting elements in a list by their weight
 
     public double accelerate(){
         if (speed <= maxSpeed-10){
@@ -96,16 +98,26 @@ public class Vehicle {
                 "\nWeight: " + this.weight +
                 "\nMax Permissible Weight: " + this.maxPermissibleWeight +
                 "\nSpeed: " + this.speed +
-                "\nMax Speed: " + this.maxSpeed
-                );
+                "\nMax Speed: " + this.maxSpeed+
+                "\n___________________________");
     }
 
     /**
-     * Method returns the definite workshop by it's post code
+     * Method returns the definite workshop by it's post code and shows the it's name if the post code matches.
+     * If not the method throws an exception
      */
 
+    //TODO: if the post code is not in the list throw an exception
     public Workshop getWorkshop(int postCode){
-        return workshops.get(postCode);
+
+        for (int i = 0; i < workshops.size(); i++) {
+            if (workshops.get(i).getPostCode() == postCode) {
+                System.out.println(workshops.get(i).getName());
+                return workshops.get(i);
+            }
+        }
+        return workshops.get(0);
+
     }
 
 }
