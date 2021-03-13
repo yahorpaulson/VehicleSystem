@@ -1,3 +1,6 @@
+/**
+ * Created by Yahor Paulson for Object Modeling and Implementation (620.102 Univ.-Ass. Haya Majid Qureshi, M.Sc. )
+ */
 package yahor.progects.omi.vehicles;
 
 import java.util.ArrayList;
@@ -46,9 +49,10 @@ public class Main {
          */
 
         VehicleAdministration admin = new VehicleAdministration();
-        admin.addVehicle(new Vehicle(1, "x5", BMW, list, 4, 3, 300));
-        admin.addVehicle(new Vehicle(2, "Rapid", Scoda, list, 2, 1, 250));
-        admin.addVehicle(new Vehicle(3, "Just Tesla", Scoda, list, 3, 1, 350));
+        admin.addVehicle( "x5", BMW, list, 4, 3, 300);
+        admin.addVehicle( "Rapid", Scoda, list, 2, 1, 250);
+        admin.addVehicle("Just Tesla", Scoda, list, 3, 1, 350);
+        admin.addVehicle("One more Tesla", Tesla, list, 3, 3, 400);
 
 
         /**
@@ -66,6 +70,8 @@ public class Main {
         //admin.printAllVehicles(); //demonstration of printing all vehicles in a list
 
         //admin.printAllVehiclesByWeight(); //demonstration of printing all vehicles in a sorted list
+
+        //admin.search("Rapid");    //demo of searchin' vehicles by their name
 
 
 

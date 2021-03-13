@@ -13,7 +13,16 @@ public class VehicleAdministration {
     }
 
     /**
-     * Method adds a new Vehicle in the list
+     * Method creates a new Vehicle and calls a method to add this vehicle to the list
+     */
+
+    public void addVehicle(String name, Brand brand, ArrayList<Workshop> workshop, int weight, int maxPermissibleWeight, double maxSpeed){
+        Vehicle vehicle = new Vehicle(name, brand, workshop, weight, maxPermissibleWeight, maxSpeed);
+        addVehicle(vehicle);
+    }
+
+    /**
+     * Method adds a new Vehicle in the list if the id is different
      */
 
     public void addVehicle(Vehicle vehicle) throws IllegalArgumentException {
@@ -82,5 +91,17 @@ public class VehicleAdministration {
                 "*********************");
         sortAllVehiclesByWeight();
         printAllVehicles();
+    }
+
+    /**
+     * Method searches all vehicles by it's name and shows on display all information about them
+     */
+
+    public void search(String brandName){
+        for (int i = 0; i < vehicles.size(); i++) {
+            if(vehicles.get(i).getName() == brandName){
+                vehicles.get(i).printInfo();
+            }
+        }
     }
 }

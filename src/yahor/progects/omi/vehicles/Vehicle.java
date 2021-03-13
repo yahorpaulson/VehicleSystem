@@ -3,7 +3,7 @@ package yahor.progects.omi.vehicles;
 import java.util.ArrayList;
 
 public class Vehicle {
-    private int id;
+    private long id;
     private String name;
     private Brand brand;
     private ArrayList<Workshop> workshops;
@@ -12,8 +12,9 @@ public class Vehicle {
     private double speed;
     private double maxSpeed;
 
+    private static long nextID = 0;
+
     public Vehicle(
-            int id,
             String name,
             Brand brand,
             ArrayList <Workshop> workshops,
@@ -21,7 +22,6 @@ public class Vehicle {
             int maxPermissibleWeight,
             double maxSpeed){
 
-        this.id = id;
         this.name = name;
         this.brand = brand;
         this.workshops = workshops; //why for each Vehicle we have to create a new ArrayList with workshops
@@ -29,9 +29,10 @@ public class Vehicle {
         this.maxPermissibleWeight = maxPermissibleWeight;
         this.speed = 0;
         this.maxSpeed = maxSpeed;
+        this.id = getnextID();
     }
 
-    public int getId() { //getter is made for checking in a list of vehicles 2 vehicles with the same id
+    public long getId() { //getter is made for checking in a list of vehicles 2 vehicles with the same id
         return this.id;
     }   //getter is used for searching an element by it's ID
 
@@ -40,6 +41,8 @@ public class Vehicle {
      */
 
     public int getWeight() { return this.weight;}   //getter is used for sorting elements in a list by their weight
+
+    public String getName() { return this.name;}    //getter is usec for searching by vehicle's name
 
     public double accelerate(){
         if (speed <= maxSpeed-10){
@@ -120,4 +123,8 @@ public class Vehicle {
 
     }
 
+    private static long getnextID(){
+        nextID++;
+        return nextID;
+    }
 }
