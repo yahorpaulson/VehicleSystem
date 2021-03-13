@@ -50,10 +50,15 @@ public class VehicleAdministration {
      */
 
     public void search(int vehicleID){
+        boolean state = false;
         for (int i = 0; i < vehicles.size(); i++) {
             if(vehicles.get(i).getId() == vehicleID){
                 vehicles.get(i).printInfo();
+                state = true;
             }
+        }
+        if (!state){
+            System.out.println("There's no vehicle with ID:" + vehicleID);
         }
     }
     /**
@@ -71,12 +76,14 @@ public class VehicleAdministration {
      *  It compares two neighbour elements to each other by its weight.
      *  If the weight of the 1st element is greater than 2, the elements are swapping and it starts to comparing from the begining,
      *  if not than it goes to the next element. It's made with a recursion.
+     *  UPD: method don't change the existing method but creates a new list with sorted elements.
      */
 
     private void sortAllVehiclesByWeight(){
+        ArrayList <Vehicle> sortedVehicleList = new ArrayList<>(vehicles);
         for (int i = 0; i < vehicles.size()-1; i++) {
-            if(vehicles.get(i).getWeight() > vehicles.get(i+1).getWeight()){
-                Collections.swap(vehicles, i ,i+1);
+            if(sortedVehicleList.get(i).getWeight() > sortedVehicleList.get(i+1).getWeight()){
+                Collections.swap(sortedVehicleList, i ,i+1);
                 sortAllVehiclesByWeight();
             }
         }
