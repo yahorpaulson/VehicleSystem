@@ -49,10 +49,15 @@ public class Main {
          */
 
         VehicleAdministration admin = new VehicleAdministration();
+
+        Car car = new Car("Car", BMW, list,3,6,200, 57, 3);
+        car.fillUp(10);
+
         admin.addVehicle( "x5", BMW, list, 4, 3, 300);
         admin.addVehicle( "Rapid", Scoda, list, 2, 1, 250);
         admin.addVehicle("Just Tesla", Tesla, list, 3, 1, 350);
         admin.addVehicle("One more Tesla", Tesla, list, 3, 3, 400);
+        admin.addVehicle(car);
 
 
         /**
@@ -73,6 +78,11 @@ public class Main {
 
         //admin.search("Rapid");    //demo of searchin' vehicles by their name
 
+
+
+        //car.drive(6); //demo of driving a car
+
+        //car.printInfo(); //demo of printing data about a car
 
 
 

@@ -73,31 +73,30 @@ public class VehicleAdministration {
 
     /**
      *  Method sorts the list of Vehicles by it's weight.
-     *  It compares two neighbour elements to each other by its weight.
-     *  If the weight of the 1st element is greater than 2, the elements are swapping and it starts to comparing from the begining,
-     *  if not than it goes to the next element. It's made with a recursion.
-     *  UPD: method don't change the existing method but creates a new list with sorted elements.
-     */
-
-    private void sortAllVehiclesByWeight(){
-        ArrayList <Vehicle> sortedVehicleList = new ArrayList<>(vehicles);
-        for (int i = 0; i < vehicles.size()-1; i++) {
-            if(sortedVehicleList.get(i).getWeight() > sortedVehicleList.get(i+1).getWeight()){
-                Collections.swap(sortedVehicleList, i ,i+1);
-                sortAllVehiclesByWeight();
-            }
-        }
-    }
-
-    /**
-     * Method prints a sorted list by weight
+     *  Sorted with the bubble sorting method
      */
 
     public void printAllVehiclesByWeight(){
-        System.out.println("The vehicles are sorted by it's weight... \n" +
-                "*********************");
-        sortAllVehiclesByWeight();
-        printAllVehicles();
+        ArrayList<Vehicle> vehiclesToSort = new ArrayList<>();
+        for(Vehicle vehicle:vehicles) {
+            vehiclesToSort.add(vehicle);
+        }
+
+        // Bubble Sort
+        Vehicle tempVehicle;
+        for(int i=0; i<vehiclesToSort.size()-1; i++) {
+            for(int j=1; j<vehiclesToSort.size()-i; j++) {
+                if(vehiclesToSort.get(j-1).getWeight()>vehiclesToSort.get(j).getWeight()) {
+                    tempVehicle = vehiclesToSort.get(j-1);
+                    vehiclesToSort.set(j-1, vehiclesToSort.get(j));
+                    vehiclesToSort.set(j, tempVehicle);
+                }
+            }
+        }
+
+        for(Vehicle vehicle:vehiclesToSort) {
+            vehicle.printInfo();
+        }
     }
 
     /**

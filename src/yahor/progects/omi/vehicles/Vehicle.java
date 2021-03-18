@@ -9,7 +9,7 @@ public class Vehicle {
     private ArrayList<Workshop> workshops;
     private int weight;
     private int maxPermissibleWeight;
-    private double speed;
+    protected double speed;
     private double maxSpeed;
 
     private static long nextID = 0;
@@ -30,19 +30,28 @@ public class Vehicle {
         this.speed = 0;
         this.maxSpeed = maxSpeed;
         this.id = getnextID();
+
     }
 
     public long getId() { //getter is made for checking in a list of vehicles 2 vehicles with the same id
         return this.id;
-    }   //getter is used for searching an element by it's ID
+    }
+
+    public int getWeight() { return this.weight;}
+
+    public String getName() { return this.name;}
+
+    public Brand getBrand() { return brand; }
+
+    public double getSpeed() { return speed;}
+
+    public int getMaxPermissibleWeight() { return maxPermissibleWeight; }
+
+    public double getMaxSpeed() { return maxSpeed; }
 
     /**
      * Method increases vehicle's speed on 10. The max possible value of the speed will equal max speed;
      */
-
-    public int getWeight() { return this.weight;}   //getter is used for sorting elements in a list by their weight
-
-    public String getName() { return this.name;}    //getter is usec for searching by vehicle's name
 
     public double accelerate(){
         if (speed <= maxSpeed-10){
