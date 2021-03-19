@@ -1,7 +1,6 @@
 package yahor.progects.omi.vehicles;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class VehicleAdministration {
 
@@ -109,5 +108,31 @@ public class VehicleAdministration {
                 vehicles.get(i).printInfo();
             }
         }
+    }
+
+    /**
+     *  Filling up all the cars
+     */
+
+    public void fillUpAllCars(double fuel){
+        for (Vehicle vehicle: vehicles){
+            if (vehicle instanceof Car){
+                ((Car) vehicle).fillUp(fuel);
+            }
+        }
+        System.out.println("All cars are filled up on " +  fuel + "litres...");
+    }
+
+    /**
+     * Charging up all electrocars
+     */
+
+    public void chargeAllElectricCars(double power, double hours){
+        for (Vehicle vehicle: vehicles) {
+            if(vehicle instanceof ElectricCar){
+                ((ElectricCar) vehicle).charge(power, hours);
+            }
+        }
+        System.out.println("Charged...");
     }
 }

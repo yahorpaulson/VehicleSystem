@@ -65,4 +65,5 @@ public class Workshop {
     public String getStreet() {
         return street;
     }
+    ///endregion
 }
