@@ -15,10 +15,10 @@ public class VehicleAdministration {
      * Method creates a new Vehicle and calls a method to add this vehicle to the list
      */
 
-    public void addVehicle(String name, Brand brand, ArrayList<Workshop> workshop, int weight, int maxPermissibleWeight, double maxSpeed){
+    /*public void addVehicle(String name, Brand brand, ArrayList<Workshop> workshop, int weight, int maxPermissibleWeight, double maxSpeed){
         Vehicle vehicle = new Vehicle(name, brand, workshop, weight, maxPermissibleWeight, maxSpeed);
         addVehicle(vehicle);
-    }
+    }*/
 
     /**
      * Method adds a new Vehicle in the list if the id is different

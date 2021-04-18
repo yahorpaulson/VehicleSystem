@@ -59,7 +59,8 @@ public class Car extends Vehicle{
 
         for (int i = 0; i < kilometres; i++){
             accelerate();
-            this.fuel -= fuelConsumtion;
+            brake();
+            this.fuel = fuelConsumtion - 2;
             kilometerCounter++;
             if (this.fuel <= 0){
                 this.fuel = 0;

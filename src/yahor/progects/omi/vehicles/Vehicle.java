@@ -2,7 +2,7 @@ package yahor.progects.omi.vehicles;
 
 import java.util.ArrayList;
 
-public class Vehicle {
+public abstract class Vehicle {
     private long id;
     private String name;
     private Brand brand;
@@ -87,16 +87,7 @@ public class Vehicle {
      * Each kilometer the vehicle increases and decreases it's speed 3 times while driving.
      */
 
-    public void drive(int kilometers){
-        for (int i = 0; i < kilometers; i++) {
-            for (int j = 0; j < 3; j++) {
-                accelerate();
-                brake();
-            }
-        }
-        System.out.println("Vehicle "  + this.name + " has made a test-drive...");
-
-    }
+    public abstract void drive(int kilometers);
 
     /**
      * Method that shows all information about the vehicle

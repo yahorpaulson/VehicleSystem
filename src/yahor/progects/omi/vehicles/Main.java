@@ -56,9 +56,9 @@ public class Main {
 
         admin.addVehicle(car);
         admin.addVehicle(tesla);
-        admin.addVehicle( "x5", BMW, list, 4, 3, 300);
+        /*admin.addVehicle( "x5", BMW, list, 4, 3, 300);
         admin.addVehicle( "Rapid", Scoda, list, 2, 1, 250);
-        admin.addVehicle("Tesla 1st", Tesla, list, 3, 3, 400);
+        admin.addVehicle("Tesla 1st", Tesla, list, 3, 3, 400);*/
 
 
         /**

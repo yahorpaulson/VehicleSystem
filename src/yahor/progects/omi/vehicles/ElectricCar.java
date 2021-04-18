@@ -72,7 +72,8 @@ public class ElectricCar extends Vehicle{
         for (int i = 0; i < kilometres; i++) {
 
             accelerate();
-            batteryLevel -= powerConsumption;
+            brake();
+            batteryLevel = powerConsumption - 2;
             if (batteryLevel < 0){
                 batteryLevel = 0;
                 while (speed > 0){
