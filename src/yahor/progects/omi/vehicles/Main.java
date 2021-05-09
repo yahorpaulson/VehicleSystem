@@ -49,13 +49,18 @@ public class Main {
          * creating a vehicles administration
          */
 
-        VehicleAdministration admin = new VehicleAdministration();
+        VehicleAdministration admin = VehicleAdministration.getInstance();
+        //VehicleAdministration administration = VehicleAdministration.getInstance(); //check
+        System.out.println(VehicleAdministration.counter); //prove that there is only one instance of the class Vehicle Administration
 
         Car car = new Car("Rapid", Scoda, list,3,1,200, 20, 2);
         ElectricCar tesla = new ElectricCar("Just Tesla",Tesla,list,3, 2,300, 100, 1.75);
 
         admin.addVehicle(car);
         admin.addVehicle(tesla);
+
+        admin.printAllVehicles();
+
         /*admin.addVehicle( "x5", BMW, list, 4, 3, 300);
         admin.addVehicle( "Rapid", Scoda, list, 2, 1, 250);
         admin.addVehicle("Tesla 1st", Tesla, list, 3, 3, 400);*/

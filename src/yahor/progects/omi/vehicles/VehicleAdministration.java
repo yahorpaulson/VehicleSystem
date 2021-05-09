@@ -4,11 +4,23 @@ import java.util.ArrayList;
 
 public class VehicleAdministration {
 
+    public static int counter = 0;
+
     private ArrayList<Vehicle> vehicles; //declaration of a list of vehicles
 
+    private static VehicleAdministration instance;
 
-    public VehicleAdministration(){
+
+    private VehicleAdministration(){
+        counter++;
         vehicles = new ArrayList<>(); //initialisation  with a constructor as a new empty list of vehicles
+    }
+
+    public static VehicleAdministration getInstance(){  //Singleton
+        if (instance == null){
+            instance = new VehicleAdministration();
+        }
+        return instance;
     }
 
     /**
